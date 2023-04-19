@@ -112,5 +112,5 @@ By focusing on these areas, you can continue to improve your skills and become m
 
 
 ## Author
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/muubaraq)
-- Twitter - [@yourusername](https://www.twitter.com/muubaraq)
+- Frontend Mentor - [@muubaraq](https://www.frontendmentor.io/profile/muubaraq)
+- Twitter - [@muubaraq](https://www.twitter.com/muubaraq)
