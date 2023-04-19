@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+  <header>
+    <div class="nav-div sm:max-w-5xl mx-auto sm:pt-6 sm:border-b-gray-400 sm:border-b-2 max-w-md">
+      <nav class="flex justify-between items-center p-4">
+        <div class="mobile-menu sm:hidden flex">
+          <button class="hamburger-icon me-3 cursor-pointer">
+            <img src="./images/icon-menu.svg" alt="hamburger-icon" class="w-6">
+          </button>
+          <img src="./images/logo.svg" alt="logo" class="sm:hidden">
+        </div>
+        <div class="logo-div sm:flex sm:justify-between sm:items-center">
+          <img src="./images/logo.svg" alt="logo" class="hidden sm:block">
+          <div class="ul-list sm:ms-10 hidden sm:block">
+            <ul class="sm:flex list-none">
+              <li class="sm:pe-3"><a href="#" class="no-underline text-gray-600 sm:hover:text-black  sm:hover:border-b-orange-500 sm:hover:border-b-4">Collections</a></li>
+  
+              <li class="sm:pe-3 "><a href="#" class="no-underline text-gray-600 sm:hover:text-black  sm:hover:border-b-orange-500 sm:hover:border-b-4">Men</a></li>
+              <li class="sm:pe-3"><a href="#" class="no-underline text-gray-600 sm:hover:text-black  sm:hover:border-b-orange-500 sm:hover:border-b-4">Women</a></li>
+              <li class="sm:pe-3"><a href="#" class="no-underline text-gray-600 sm:hover:text-black  sm:hover:border-b-orange-500 sm:hover:border-b-4">About</a></li>
+              <li class="sm:pe-3"><a href="#" class="no-underline text-gray-600 sm:hover:text-black  sm:hover:border-b-orange-500 sm:hover:border-b-4">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cart-div flex justify-between items-center">
+          <div class="icon-img me-4 cursor-pointer cart-icon">
+            <span class="cart-item-count bg-orange-500 rounded-full w-6 text-center text-xs">0</span>
+            <img src="./images/icon-cart.svg" alt="cart-icon" class="w-6 cart-icon">
+          </div>
+          <div class="avatar-img sm:w-14 w-9 hover:rounded-full hover:border-orange-500 hover:border-2 cursor-pointer">
+            <img src="./images/image-avatar.png" alt="avatar" >
+          </div>
+        </div>
+        
+      </nav>
+    </div>
+    <div class="offcanvas hidden sm:hidden">
+      <div class="offcanvas-content bg-white h-screen w-8/12 fixed top-0 left-0 z-50 ps-8">
+        <button class="offcanvas-close  top-0 left-0 mt-4 cursor-pointer z-20">
+          <img src="./images/icon-close.svg" alt="close-icon" class="w-6">
+        </button>
+        <ul class="offcanvas-menu h-full mt-5">
+          <li class="offcanvas-item pb-3"><a href="#" class="no-underline text-black ">Collections</a></li>
+          <li class="offcanvas-item pb-3"><a href="#" class="no-underline text-black">Men</a></li>
+          <li class="offcanvas-item pb-3"><a href="#" class="no-underline text-black ">Women</a></li>
+          <li class="offcanvas-item pb-3"><a href="#" class="no-underline text-black">About</a></li>
+          <li class="offcanvas-item"><a href="#" class="no-underline text-black">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="sm:max-w-5xl mx-auto sm:mt-6 sm:pt-6 sm:flex sm:justify-around sm:items-start py-5 relative">
+    <div class="product-image-section sm:max-w-sm">
+      <div class="product-image-container">
+        <img src="./images/image-product-1.jpg" alt="Product Image" id="product-image" class="sm:max-w-sm sm:rounded-lg cursor-pointer"  onclick="openLightboxGallery(0)">
+        <!-- the substitue images -->
+        <div class="product-image-main hidden">
+          <img src="./images/image-product-2.jpg" alt="Product Image" id="product-image-1" class="sm:max-w-sm sm:rounded-lg cursor-pointer main-image" >
+          <img src="./images/image-product-3.jpg" alt="Product Image" id="product-image-2" class="sm:max-w-sm sm:rounded-lg cursor-pointer main-image" >
+          <img src="./images/image-product-4.jpg" alt="Product Image" id="product-image-3" class="sm:max-w-sm sm:rounded-lg cursor-pointer main-image" >
+
+        </div>
+      </div>
+      <!-- thumbnails -->
+      <div class="product-thumbnails flex justify-around my-3 ">
+        <img src="./images/image-product-1-thumbnail.jpg" alt="Thumbnail 1" class="product-thumbnail rounded-lg w-16 cursor-pointer hover:border-2 hover:border-orange-500" onclick="changeProductImage('./images/image-product-1.jpg', 0)">
+        <img src="./images/image-product-2-thumbnail.jpg" alt="Thumbnail 2" class="product-thumbnail rounded-lg w-16 cursor-pointer  hover:border-2 hover:border-orange-500" onclick="changeProductImage('./images/image-product-2.jpg', 1)">
+        <img src="./images/image-product-3-thumbnail.jpg" alt="Thumbnail 3" class="product-thumbnail rounded-lg w-16 cursor-pointer  hover:border-2 hover:border-orange-500" onclick="changeProductImage('./images/image-product-3.jpg', 2)">
+        <img src="./images/image-product-4-thumbnail.jpg" alt="Thumbnail 4" class="product-thumbnail rounded-lg w-16 cursor-pointer  hover:border-2 hover:border-orange-500" onclick="changeProductImage('./images/image-product-4.jpg', 3)">
+      </div>
+<!-- Lightbox Gallery Markup -->
+    <div id="lightbox-gallery" class="hidden">
+
+      <div class="lightbox-overlay" onclick="closeLightboxGallery()"></div>
+      <div class="lightbox-content hidden sm:block  sm:max-w-md mx-auto">
+        <img src="./images/icon-close.svg" alt="close-icon" id="lightbox-image-2" onclick="closeLightboxGallery()"> 
+        <img src="" alt="Product Image" id="lightbox-image" class="sm:max-w-sm sm:rounded-lg">
+        <div class="lightbox-btn lightbox-btn-prev font-bold text-2xl" onclick="changeLightboxImage(-1)">&#9001;</div>
+      <div class="lightbox-btn lightbox-btn-next font-bold text-2xl" onclick="changeLightboxImage(1)">&#9002;  </div>
+       </div>
+      </div>
+    </div>
+
+    
+    <div class="product-description sm:self-center sm:max-w-md mt-3 px-3">
+      <div class="description-container">
+        <p class="text-orange-500 uppercase font-bold"> Sneaker Company</p>
+        <h1 class="font-bold text-4xl my-5 product-title">Fall Limited Edition <br>Sneakers</h1>
+        <p class="text-gray-400">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+        <div class="pricing mt-4 flex justify-between sm:w-36">
+          <div class="actual-pricing flex sm:flex-col items-center sm:items-start">
+            <p class="font-bold text-2xl product-price">$125.00</p>
+            <div class="slashed-price ms-3 sm:ms-0">
+              <p class="line-through text-gray-400 font-bold"> $250.00</p>
+            </div>
+          </div>
+          <div class="half-pricing">
+            <p class="text-orange-500 bg-gray-200 p-1 rounded w-10 font-bold">50%</p>
+          </div>
+        </div>
+        <div class="btn-div mt-4  sm:w-80 sm:justify-between flex flex-col sm:flex-row items-center">
+          <div class="number-of-product flex justify-between bg-gray-200 p-2 rounded sm:w-56 w-80 items-center">
+           <button id="minusButton"> <img src="./images/icon-minus.svg" alt="minus-icon" class="w-4 h-2 cursor-pointer hover:opacity-50"></button>
+            <p id="productCount">0</p>
+            <button id="plusButton"><img src="./images/icon-plus.svg" alt="plus-icon" class="w-4 h-4 cursor-pointer hover:opacity-50" ></button>
+          </div>
+          <button class="inline-block bg-orange-500 hover:bg-orange-300 text-white font-bold sm:w-56 rounded py-2 add-to-cart w-80 mt-4 sm:mt-0 sm:ms-1" id="addToCartButton"><span><img src="./images/icon-cart.svg" class="inline-block "></span> Add to cart</button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-items-container bg-white p-5 absolute w-80 rounded-md sm:top-[-7%] sm:right-[0] top-[3%] right-[20%] shadow-lg">
+      <p class="font-bold mb-3">Cart</p>
+      <hr>
+    </div>
+  </main>
+ 
+  <script src="product.js"></script>
+</body>
+</html>
